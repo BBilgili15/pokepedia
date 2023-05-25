@@ -36,3 +36,107 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* My CSS */
+
+.nav-bar {
+  background-color: rgb(171, 212, 143);
+  margin: 0;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  padding-left: 50px;
+  padding-right: 30px;
+  border-bottom: 5px solid black;
+}
+
+.nav-container {
+  display: flex; 
+  justify-content: space-evenly;
+  width: 20vw;
+  list-style: none;
+  text-decoration: none;
+}
+
+#nav-item {
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  background-color: rgb(24, 35, 22);
+}
+
+#nav-item:hover {
+  color: black;
+  background-color: white;
+  transition: 0.5s;
+}
+
+.pokedex-head {
+  margin-left: 50px;
+}
+
+.pokemon-card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 5px;
+  margin-left: 10px;
+  margin-right: 50px;
+}
+
+.pokemon-card {
+  list-style: none;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.add-to-party {
+  color: white;
+  background-color: rgb(24, 35, 22);
+  border: none;
+  border-radius: 50%;
+}
+
+.remove-from-party {
+  color: white;
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+}
+
+.add-to-party:hover {
+  color: black;
+  background-color: rgb(171, 212, 143);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.pokemon-team-subheading {
+  margin-left: 50px;
+}
+
+.pokemon-team-container {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  margin-left: 10px;
+  margin-right: 50px;
+}
+
+.pokemon-team-card {
+  list-style: none;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 3vh;
+}
+
