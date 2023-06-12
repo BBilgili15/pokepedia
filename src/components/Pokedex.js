@@ -1,14 +1,16 @@
 import React from 'react'
 
 
-const Pokedex = ({handleClick, pokemon, myParty}) => {
+const Pokedex = ({handleAddToParty, handleRemoveFromParty, filteredPokemon, myParty, handleSearch}) => {
 
-  const pokemonNames = pokemon.map((pokemon, index) => {
+  const pokemonNames = filteredPokemon.map((pokemon, index) => {
     return (
-    <li key={index} className='pokemon-card' >
-      <img src={pokemon.image}/>
-      <h3>{pokemon.name}</h3>
-      <button className={myParty.includes(pokemon) ? 'remove-from-party' : 'add-to-party'} onClick={() => {handleClick(pokemon)}} >+</button>
+    <li key={pokemon.name} className='pokemon-card' >
+      {/* <div className='name-image-container'> */}
+        <img src={pokemon.image} className='pokemon-card-image'/>
+        <h3 className='pokemon-card-name'>{pokemon.name}</h3>
+      {/* </div> */}
+      {myParty.includes(pokemon) ? <button className='remove-from-party' onClick={() => {handleRemoveFromParty(pokemon)}}>Remove From Party</button> : <button className='add-to-party' onClick={() => {handleAddToParty(pokemon)}}>Add To Party</button>}
     </li>
     )
 
@@ -17,6 +19,7 @@ const Pokedex = ({handleClick, pokemon, myParty}) => {
   return (
     <div>
       <h2 className='pokedex-head'>Pokedex</h2>
+      <input type='text' className='input-search' placeholder='Search Pokemon..' onInput={handleSearch}/>
       <h4 className='pokedex-head'>Current Party: {myParty.length}/6</h4>
       <ul className='pokemon-card-container'>
         {pokemonNames}

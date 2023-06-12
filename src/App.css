@@ -40,6 +40,9 @@
 
 /* My CSS */
 
+
+/* Nav */
+
 .nav-bar {
   background-color: rgb(171, 212, 143);
   margin: 0;
@@ -74,49 +77,105 @@
   transition: 0.5s;
 }
 
+/* Pokedex */
 .pokedex-head {
+  margin-left: 50px;
+}
+
+.input-search {
+  align-self: center;
+  margin: 10px;
   margin-left: 50px;
 }
 
 .pokemon-card-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap: 5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
   margin-left: 10px;
   margin-right: 50px;
+  /* background-color: lightblue; */
 }
 
 .pokemon-card {
   list-style: none;
   border: 2px solid black;
   border-radius: 5px;
-  padding: 5px;
+  padding: none;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  /* background-color: lightblue; */
 }
 
-.add-to-party {
-  color: white;
-  background-color: rgb(24, 35, 22);
-  border: none;
-  border-radius: 50%;
+.name-image-container {
+  display: flex;
+  flex-direction: column;
+  /* background-color: lightpink; */
+  align-items: center;
+  height: 100%;
+  justify-content: space-evenly;
+  width: 75%;
+  padding: 0;
+  margin: 0;
 }
 
-.remove-from-party {
-  color: white;
-  background-color: white;
-  border: none;
-  border-radius: 50%;
-}
-
-.add-to-party:hover {
-  color: black;
-  background-color: rgb(171, 212, 143);
+.pokemon-card:hover {
+  /* background-color: rgb(171, 212, 143); */
   cursor: pointer;
   transition: 0.5s;
 }
 
+.pokemon-card-image {
+  margin: 0;
+  padding: 0;
+  /* background-color: #61dafb; */
+}
+
+.pokemon-card-name {
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 0;
+}
+
+.add-to-party, .remove-from-party {
+  border: none;
+  border-top: 2px solid black;
+  height: 5vh;
+  width: 100%;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.add-to-party {
+  color: black;
+  background-color: rgb(171, 212, 143);
+}
+
+.remove-from-party {
+  color: white;
+  background-color: red;
+}
+
+.remove-from-party:hover {
+  color: white;
+  /* background-color: rgb(255, 58, 58); */
+  cursor: pointer;
+  transition: 0.5s;
+  font-weight: bold;
+}
+
+.add-to-party:hover {
+  color: black;
+  /* background-color: rgb(84, 132, 51); */
+  cursor: pointer;
+  transition: 0.5s;
+  font-weight: bold;
+}
+
+
+/* My Team */
 .pokemon-team-subheading {
   margin-left: 50px;
 }
