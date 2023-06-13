@@ -88,7 +88,7 @@ function App() {
     <Router>
       <NavBar/>
       <Routes>
-        <Route path='/' element={<Pokedex pokemonData={pokemonData} setPokemonData={setPokemonData} pokemon={pokemon} filteredPokemon={filteredPokemon} handleAddToParty={handleAddToParty} handleRemoveFromParty={handleRemoveFromParty} myParty={myParty} handleSearch={handleSearch} />} />
+        <Route path='/' element={<Pokedex pokemonData={pokemonData} setPokemonData={setPokemonData} pokemon={pokemon} filteredPokemon={filteredPokemon} handleAddToParty={handleAddToParty} handleRemoveFromParty={handleRemoveFromParty} myParty={myParty} handleSearch={handleSearch} setMyParty={setMyParty}/>} />
         <Route path='/list' element={<PokemonList pokemonData={pokemonData} setPokemonData={setPokemonData} pokemon={pokemon} filteredPokemon={filteredPokemon} handleAddToParty={handleAddToParty} handleRemoveFromParty={handleRemoveFromParty} myParty={myParty} handleSearch={handleSearch} />} />
         <Route path='/team-builder' element={<TeamBuilder myParty={myParty} pokemonData={pokemonData} />} />
         <Route path='/pokemon/:id' element={<SelectedPokemon pokemonData={pokemonData}/>} />

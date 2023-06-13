@@ -75,6 +75,7 @@
   color: black;
   background-color: white;
   transition: 0.5s;
+  cursor: pointer;
 }
 
 /* Pokedex */
@@ -85,7 +86,17 @@
 .pokemon-types-container { 
   list-style-type: none;
   display: flex;
-  margin-left: 1vw;
+  margin-left: 4vw;
+  border: 2px solid black;
+  width: 20vw;
+  height: 2rem;
+  padding: 0.5rem 0;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  border-radius: 10px;
 }
 
 #pokemon-type-list-item {
@@ -104,7 +115,7 @@
 .pokemon-card-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 10px;
+  gap: 15px;
   margin-left: 10px;
   margin-right: 50px;
   /* background-color: lightblue; */
@@ -119,6 +130,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   /* background-color: lightblue; */
 }
 
@@ -159,6 +171,17 @@
   text-align: center;
   border-bottom: 1px solid black;
   z-index: 0;
+}
+
+.dropdown-type-container {
+  display: grid;
+  list-style-type: none;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+#dropdown-type-filter {
+  text-align: center;
 }
 
 /* Types */
@@ -243,6 +266,11 @@
   color: white;
 }
 
+.type-dragon { 
+  background-color: rgb(33, 46, 231);
+  color: white;
+}
+
 
 .add-to-party, .remove-from-party {
   border: none;
@@ -280,15 +308,23 @@
 }
 
 
-/* My Team */
+/* Team Builder */
+
+.team-builder-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .pokemon-team-subheading {
   margin-left: 50px;
 }
 
 .pokemon-team-container {
-  display: flex;
-  flex-direction: column;
-  width: 30vw;
+  /* display: flex;
+  flex-direction: column; */
+  /* width: 30vw; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   margin-left: 10px;
   margin-right: 50px;
 }
@@ -304,3 +340,7 @@
   margin-bottom: 3vh;
 }
 
+.weak-against {
+  padding: 0.25rem;
+  border-radius: 10px;
+}
