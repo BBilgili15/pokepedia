@@ -1,5 +1,8 @@
 import React from 'react'
 import {useState} from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const TeamBuilder = ({myParty, pokemonData}) => {
@@ -15,8 +18,8 @@ const TeamBuilder = ({myParty, pokemonData}) => {
     )
   })
 
-
-
+  // Toastify Pop-Up
+  const notify = (string) => toast(string);
 
   // For each Pokemon in party, create a separate array of what they are weak against 
   const arraysOfWeakAgainst = myParty.map((pokemon) => {
@@ -42,16 +45,22 @@ const TeamBuilder = ({myParty, pokemonData}) => {
   // recommend a type/pokemon to fix problem
 
   const generateReport = (array) => {
-    let count = {}
-    for (let item of array) {
-      if (count[item]) { 
-        count[item]++
-      } else {
-        count[item] = 1
+    if (myParty.length > 0) {
+      let count = {}
+      for (let item of array) {
+        if (count[item]) { 
+          count[item]++
+        } else {
+          count[item] = 1
+        }
       }
+      console.log(count)
+      notify("Report Generated")
+      return getTopOccurrences(count, 3)
+    } else {
+      notify("1 Pokemon in party required")
     }
-    console.log(count)
-    return getTopOccurrences(count, 3)
+
   }
 
   function getTopOccurrences(occurrenceCount, topCount) {
@@ -66,19 +75,31 @@ const TeamBuilder = ({myParty, pokemonData}) => {
   return (
     <div className='team-builder-container'>
       <div>
-        <h2 className='pokemon-team-subheading'>Your Party</h2>
+        <h2 className='pokemon-team-subheading'>My Party</h2>
         <ul className='pokemon-team-container'>
             {renderMyParty}
           </ul>
       </div>
+      <ToastContainer />
       <div>
         <button id='nav-item' onClick={() => {generateReport(weakAgainstNames)}}>Generate Weakness Report</button>
         <div>
         {top3WeakAgainst ? 
-        <div className='weakness-report-container'>
+        <div className='weakness-report-container multiple'>
           <p>You are weakest to: <span className={`type-${top3WeakAgainst[0][0]} weak-against`}>{top3WeakAgainst[0][0]}</span> with {top3WeakAgainst[0][1]} weaknesses identified</p>
           <p>You are second weakest to: <span className={`type-${top3WeakAgainst[1][0]} weak-against`}>{top3WeakAgainst[1][0]}</span> with {top3WeakAgainst[1][1]} weaknesses identified</p>
           <p>You are third weakest to: <span className={`type-${top3WeakAgainst[2][0]} weak-against`}>{top3WeakAgainst[2][0]}</span> with {top3WeakAgainst[2][1]} weaknesses identified</p>
+          
+
+          {/* Look into adding a table as per below */}
+          {/* <div>
+            <table class="charts-css column show-primary-axis show-4-secondary-axes show-data-axes" id="my-chart">
+              <tr>
+                <td> 100 </td>
+                <td> 10 </td>
+              </tr>
+            </table>
+          </div> */}
         </div>
         : <></>}
         </div>

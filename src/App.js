@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import {useState, useEffect} from 'react'
 import {BrowserRouter as Router, Routes, Route, useActionData} from "react-router-dom"
 import NavBar from './components/NavBar';
@@ -49,9 +49,9 @@ function App() {
 
 
   const [pokemon, setPokemon] = useState([]);
-  const [filteredPokemon, setFilteredPokemon] = useState(pokemon)
-  const [myParty, setMyParty] = useState([])
   const [pokemonData, setPokemonData] = useState([]);
+  const [filteredPokemon, setFilteredPokemon] = useState(pokemonData)
+  const [myParty, setMyParty] = useState([])
   
 
   const selectParty = (pokemon) => {
@@ -92,7 +92,7 @@ function App() {
         <Route path='/list' element={<PokemonList pokemonData={pokemonData} setPokemonData={setPokemonData} pokemon={pokemon} filteredPokemon={filteredPokemon} handleAddToParty={handleAddToParty} handleRemoveFromParty={handleRemoveFromParty} myParty={myParty} handleSearch={handleSearch} />} />
         <Route path='/team-builder' element={<TeamBuilder myParty={myParty} pokemonData={pokemonData} />} />
         <Route path='/pokemon/:id' element={<SelectedPokemon pokemonData={pokemonData}/>} />
-        <Route path='*' element={<ErrorPage/>} />
+        <Route path='*' element={<ErrorPage/>} /> 
       </Routes>
     </Router>
   );

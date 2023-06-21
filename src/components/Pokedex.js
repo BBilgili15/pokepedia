@@ -6,7 +6,7 @@ const { Panel } = Collapse;
 
 const Pokedex = ({handleAddToParty, handleRemoveFromParty, pokemonData, filteredPokemon, myParty, handleSearch, setMyParty}) => {
 
-  const pokemonNames = pokemonData.map((pokemon, index) => {
+  const pokemonNames = filteredPokemon.map((pokemon, index) => {
     return (
     <li key={pokemon.name} className='pokemon-card'>
           <ul className='pokemon-card-type-container'>
@@ -29,6 +29,20 @@ const Pokedex = ({handleAddToParty, handleRemoveFromParty, pokemonData, filtered
           <button onClick={() => {console.log(pokemonData)}}>Console Log Data</button>
           <button onClick={() => {console.log(myParty)}}>Console Log My Party</button>
       </div>
+      
+      
+      <h4 className='pokedex-head'>Current Party: {myParty.length}/6</h4>
+      <button onClick={() => {
+        setMyParty([])
+      }}>Clear Party</button>
+            <ul className='pokemon-types-container'>
+        {myParty.map((pokemon) => {
+          return(
+            <li className={`type-${pokemon.typesData[0].name}`} id='pokemon-type-list-item'></li>
+            )
+        })}
+      </ul>
+      <input type='text' className='input-search' placeholder='Search Pokemon..' onInput={handleSearch}/>
       <Collapse className='collapse'>
       <Panel header='Filters' key="1" className='panel'>
         <ul className='dropdown-type-container'>
@@ -51,18 +65,7 @@ const Pokedex = ({handleAddToParty, handleRemoveFromParty, pokemonData, filtered
         </ul>
       </Panel>
     </Collapse>
-      <input type='text' className='input-search' placeholder='Search Pokemon..' onInput={handleSearch}/>
-      <h4 className='pokedex-head'>Current Party: {myParty.length}/6</h4>
-      <button onClick={() => {
-        setMyParty([])
-      }}>Clear Party</button>
-      <ul className='pokemon-types-container'>
-        {myParty.map((pokemon) => {
-          return(
-            <li className={`type-${pokemon.typesData[0].name}`} id='pokemon-type-list-item'></li>
-            )
-        })}
-      </ul>
+
       <ul className='pokemon-card-container'>
         {pokemonNames}
       </ul>

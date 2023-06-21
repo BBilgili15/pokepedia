@@ -40,6 +40,11 @@
 
 /* My CSS */
 
+/* General */
+
+/* html {
+  
+} */
 
 /* Nav */
 
@@ -186,15 +191,18 @@
 
 /* Types */
 
-.type-fire { 
-  background-color: red;
-  color: white;
+.type {
+  &-fire {
+    background-color: red;
+    color: white;
+  }
+  &-water {
+    background-color: rgb(63, 108, 255);
+    color: white;
+  }
 }
 
-.type-water { 
-  background-color: rgb(63, 108, 255);
-  color: white;
-}
+
 
 .type-grass { 
   background-color: rgb(0, 167, 0);
@@ -343,4 +351,10 @@
 .weak-against {
   padding: 0.25rem;
   border-radius: 10px;
+}
+
+#my-chart.column {
+  height: 200px;
+  max-width: 300px;
+  margin: 0 auto;
 }
