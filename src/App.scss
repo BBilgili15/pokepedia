@@ -42,14 +42,15 @@
 
 /* General */
 
-/* html {
-  
-} */
+html {
+  background-color: rgb(35, 43, 34);
+}
 
 /* Nav */
 
 .nav-bar {
-  background-color: rgb(171, 212, 143);
+  background-color: rgb(113, 185, 82);
+  // color: red;
   margin: 0;
   height: 10vh;
   display: flex;
@@ -84,28 +85,44 @@
 }
 
 /* Pokedex */
+
+.pokedex-container {
+  background-color: rgb(243, 242, 242);
+  margin: 1vh 4vw;
+  padding: 2.5vh 1vw 3vh 1vw;
+  border-radius: 20px;
+  box-shadow: rgba(255, 254, 254, 0.629) 0px 3px 8px;
+  // border: 1px solid black;
+}
+
 .pokedex-head {
   margin-left: 50px;
+}
+
+.pokemon-types-clear {
+  display: flex;
+  align-items: center;
 }
 
 .pokemon-types-container { 
   list-style-type: none;
   display: flex;
   margin-left: 4vw;
+  margin-right: 1vw;
   border: 2px solid black;
-  width: 20vw;
+  width: 17.5vw;
   height: 2rem;
   padding: 0.5rem 0;
   padding-left: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: black;
-  border-radius: 10px;
+  // background-color: black;
+  border-radius: 7.5px;
 }
 
 #pokemon-type-list-item {
-  border-radius: 50%;
+  border-radius: 10%;
   height: 1.5rem;
   width: 1.5rem;
   margin-right: 1rem;
@@ -136,7 +153,9 @@
   align-items: center;
   justify-content: space-evenly;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  /* background-color: lightblue; */
+  font-family: Arial, Helvetica, sans-serif;
+  // background-color: rgb(66, 64, 64);
+  // color: white;
 }
 
 
@@ -167,7 +186,7 @@
   justify-content: space-evenly;
   padding: 0;
   margin: 0;
-  z-index: -1;
+  z-index: 1;
 }
 
 #pokemon-card-type-list-item {
@@ -181,12 +200,20 @@
 .dropdown-type-container {
   display: grid;
   list-style-type: none;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 1rem;
 }
 
 #dropdown-type-filter {
   text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
+}
+
+#dropdown-type-filter:hover {
+  cursor: pointer;
+  transition: 0.35s;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 3px 8px;
 }
 
 /* Types */
@@ -269,6 +296,11 @@
   color: white;
 }
 
+.type-dark { 
+  background-color: rgb(42, 6, 42);
+  color: white;
+}
+
 .type-fairy { 
   background-color: rgb(210, 61, 178);
   color: white;
@@ -277,6 +309,15 @@
 .type-dragon { 
   background-color: rgb(33, 46, 231);
   color: white;
+}
+
+.type-clear {
+  background-color: black;
+  color: white;
+  width: 20vw;
+  align-self: center;
+  margin: auto;
+  border-radius: 0;
 }
 
 
@@ -318,9 +359,16 @@
 
 /* Team Builder */
 
-.team-builder-container {
+.my-team-container {
+  background-color: rgb(243, 242, 242);
+  margin: 1vh 4vw;
+  padding: 2.5vh 1vw 3vh 1vw;
+  border-radius: 20px;
+  box-shadow: rgba(255, 254, 254, 0.629) 0px 3px 8px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  // border: 1px solid black;
 }
 
 .pokemon-team-subheading {
@@ -332,6 +380,7 @@
   flex-direction: column; */
   /* width: 30vw; */
   display: grid;
+  gap: 30px;
   grid-template-columns: 1fr 1fr 1fr;
   margin-left: 10px;
   margin-right: 50px;
@@ -345,7 +394,14 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-bottom: 3vh;
+  // margin-bottom: 1vh;
+  background-color: white;
+  width: 20vw;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 3px 8px;
+}
+
+.weakness-report-container {
+  // color: white;
 }
 
 .weak-against {

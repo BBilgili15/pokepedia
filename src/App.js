@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=151');
+        const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=493');
         const { results } = response.data;
 
         const pokemonDetails = await Promise.all(results.map(async (pokemon) => {
@@ -38,7 +38,8 @@ function App() {
           };
         }));
 
-        setPokemonData(pokemonDetails);
+        setPokemonData(pokemonDetails)
+        setFilteredPokemon(pokemonDetails)
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -50,7 +51,8 @@ function App() {
 
   const [pokemon, setPokemon] = useState([]);
   const [pokemonData, setPokemonData] = useState([]);
-  const [filteredPokemon, setFilteredPokemon] = useState(pokemonData)
+  const [typeForFilter, setTypeForFilter] = useState();
+  const [filteredPokemon, setFilteredPokemon] = useState([])
   const [myParty, setMyParty] = useState([])
   
 
@@ -82,13 +84,19 @@ function App() {
     setFilteredPokemon(filteredValues); 
   } 
 
+
+
+
+
  
+
+
 
   return (
     <Router>
       <NavBar/>
       <Routes>
-        <Route path='/' element={<Pokedex pokemonData={pokemonData} setPokemonData={setPokemonData} pokemon={pokemon} filteredPokemon={filteredPokemon} handleAddToParty={handleAddToParty} handleRemoveFromParty={handleRemoveFromParty} myParty={myParty} handleSearch={handleSearch} setMyParty={setMyParty}/>} />
+        <Route path='/' element={<Pokedex pokemonData={pokemonData} setPokemonData={setPokemonData} pokemon={pokemon} filteredPokemon={filteredPokemon} handleAddToParty={handleAddToParty} handleRemoveFromParty={handleRemoveFromParty} myParty={myParty} handleSearch={handleSearch} setMyParty={setMyParty} setFilteredPokemon={setFilteredPokemon} setTypeForFilter={setTypeForFilter} typeForFilter={typeForFilter}/>} />
         <Route path='/list' element={<PokemonList pokemonData={pokemonData} setPokemonData={setPokemonData} pokemon={pokemon} filteredPokemon={filteredPokemon} handleAddToParty={handleAddToParty} handleRemoveFromParty={handleRemoveFromParty} myParty={myParty} handleSearch={handleSearch} />} />
         <Route path='/team-builder' element={<TeamBuilder myParty={myParty} pokemonData={pokemonData} />} />
         <Route path='/pokemon/:id' element={<SelectedPokemon pokemonData={pokemonData}/>} />

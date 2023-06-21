@@ -12,6 +12,11 @@ const TeamBuilder = ({myParty, pokemonData}) => {
   const renderMyParty = myParty.map((pokemon, index) => {
     return (
       <li key={index} className='pokemon-team-card' >
+        <ul className='pokemon-card-type-container'>
+        {pokemon.types.map((type) => (
+          <li id='pokemon-card-type-list-item' className={`type-${type.type.name}`}>{type.type.name}</li>
+        ))}
+        </ul>
         <img src={pokemon.sprites.front_default}/>
         <h3>{pokemon.name}</h3>
        </li>
@@ -73,7 +78,7 @@ const TeamBuilder = ({myParty, pokemonData}) => {
 
 
   return (
-    <div className='team-builder-container'>
+    <div className='my-team-container'>
       <div>
         <h2 className='pokemon-team-subheading'>My Party</h2>
         <ul className='pokemon-team-container'>
